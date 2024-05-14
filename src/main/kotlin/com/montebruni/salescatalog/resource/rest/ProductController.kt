@@ -1,6 +1,7 @@
 package com.montebruni.salescatalog.resource.rest
 
 import com.montebruni.salescatalog.resource.rest.response.FindProductByIdResponse
+import com.montebruni.salescatalog.resource.rest.response.from
 import com.montebruni.salescatalog.usecase.FindProductById
 import com.montebruni.salescatalog.usecase.input.FindProductByIdInput
 import io.swagger.v3.oas.annotations.Operation
@@ -36,15 +37,8 @@ class ProductController(
     fun findProductById(
         @Schema(description = "id", example = "8378c23d-8502-47d9-b364-a100b7a7d840")
         @PathVariable id: UUID
-    ): FindProductByIdResponse = findProductById.execute(FindProductByIdInput(id = id)).let {
-        FindProductByIdResponse(
-            id = it.id,
-            description = it.description,
-            height = it.height,
-            width = it.width,
-            length = it.length,
-            weight = it.weight,
-            price = it.price
-        )
-    }
+    ) =
+        FindProductByIdInput(id)
+            .let(findProductById::execute)
+            .let(FindProductByIdResponse::from)
 }
