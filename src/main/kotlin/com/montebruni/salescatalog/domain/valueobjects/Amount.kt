@@ -7,7 +7,7 @@ import java.math.RoundingMode
 data class Amount(val value: BigDecimal = BigDecimal(0)) {
 
     init {
-        if (value < BigDecimal.ZERO) throw IllegalArgumentException("Value is lower than zero")
+        require(value >= BigDecimal.ZERO) { "Value is less than zero" }
     }
 
     constructor(value: String) : this(BigDecimal(value).setScale(2, RoundingMode.HALF_EVEN))
