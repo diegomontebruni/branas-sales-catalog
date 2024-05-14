@@ -17,7 +17,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers
 import java.util.*
 
 @WebMvcTest(controllers = [ProductController::class])
-class ProductResourceIT() : BaseRestIT() {
+class ProductResourceIT : BaseRestIT() {
 
     @MockkBean
     private lateinit var findProductById: FindProductById

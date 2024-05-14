@@ -8,6 +8,7 @@ import org.springframework.boot.runApplication
 @ConfigurationPropertiesScan
 class SalesCatalogApplication
 
+@Suppress("SpreadOperator")
 fun main(args: Array<String>) {
-	runApplication<SalesCatalogApplication>(*args)
+    runApplication<SalesCatalogApplication>(*args)
 }
