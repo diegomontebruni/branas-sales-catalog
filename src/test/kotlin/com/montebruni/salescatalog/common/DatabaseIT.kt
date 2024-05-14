@@ -14,7 +14,7 @@ import org.testcontainers.utility.DockerImageName
 @DataJpaTest
 @Import(JacksonConfiguration::class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-class DatabaseIT (
+class DatabaseIT(
     private val repositories: List<JpaRepository<*, *>> = emptyList()
 ) {
 
